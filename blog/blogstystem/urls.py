@@ -1,4 +1,4 @@
-from django.conf.urls import url,include
+from django.conf.urls import url
 
 from . import views
 
@@ -15,6 +15,8 @@ urlpatterns = [
     url(r'^gd/(\d+)/(\d+)/$',views.gd,name='gd'),
     #详情
     url(r'^single/(\d+)/$',views.single,name='single'),
+    #评论
+    url(r'^comment/(\d+)/$',views.comment,name='comment'),
 
     url(r'^fullw/$',views.fullw,name='fullw'),
     #关于

@@ -1,6 +1,7 @@
 from django.contrib import admin
 
-from .models import Users,Article,Ladel,Comment,Fei
+from .models import Users,Article,Ladel,Fei,Comment
+
 
 # Register your models here.
 # class Usersline(admin.StackedInline):
@@ -30,5 +31,5 @@ from .models import Users,Article,Ladel,Comment,Fei
 admin.site.register(Users)
 admin.site.register(Article)
 admin.site.register(Ladel)
-admin.site.register(Comment)
 admin.site.register(Fei)
+admin.site.register(Comment)

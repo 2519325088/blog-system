@@ -41,9 +41,12 @@ class Ladel(models.Model):
 
 # 评论
 class Comment(models.Model):
+    crname=models.CharField(max_length=20)
+    cemail=models.EmailField(blank=True)
+    chttp=models.CharField(max_length=30)
     cname=models.TextField()
     ctime=models.DateTimeField(auto_now_add=True)  #时间
-    cuser_id=models.ForeignKey('Users',on_delete=models.CASCADE)
+    # cuser_id=models.ForeignKey('Users',on_delete=models.CASCADE)
     carticle_id=models.ForeignKey('Article',on_delete=models.CASCADE)
 
     def __str__(self):

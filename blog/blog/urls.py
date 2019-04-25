@@ -20,4 +20,5 @@ from django.conf.urls import url,include
 urlpatterns = [
     path('admin/', admin.site.urls),
     url('blogstystem/', include('blogstystem.urls', namespace='blogstystem')),
+    # url('blogstystem/', include('comment.urls',namespace='comment')),
 ]
