@@ -4,9 +4,12 @@ from django.http import HttpResponse,HttpResponseRedirect
 
 from .models import Users,Article,Ladel,Fei,Comment
 
+
 # from comment.forms import FormAdd
 import datetime
 import markdown
+
+from django.core.paginator import Paginator
 
 # Create your views here.
 
@@ -14,12 +17,18 @@ import markdown
 # 首页
 def index(request):
     wz=Article.objects.all()
+
+    paginator = Paginator(wz,2)
+    pagenum = request.GET.get('page')
+    pagenum = 1 if pagenum==None else pagenum
+    page=paginator.page(pagenum)
+
     bq=Ladel.objects.all()
     lei=Fei.objects.all()
     now_time=datetime.datetime.now()
     zxwz=Article.objects.order_by('-atime')[:3]
     gd=Article.objects.dates("atime", "month", order="DESC")[:3]
-    return render(request,'demo1/index.html',{'wz':wz,'bq':bq,'lei':lei,'zxwz':zxwz,'ntime':now_time,'gd':gd})
+    return render(request,'demo1/index.html',{'wz':wz,'bq':bq,'lei':lei,'zxwz':zxwz,'ntime':now_time,'gd':gd,'page':page})
 
 
 #归档
